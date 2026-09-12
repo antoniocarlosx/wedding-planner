@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './App.css'
+import WeddingPlanner from './WeddingPlanner'
 
 function App() {
   
 
   return (
     <>
-      <h1>Noivei e Agora?</h1>
+    <WeddingPlanner></WeddingPlanner>
+      
     </>
   )
 }
