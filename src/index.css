@@ -1,6 +1,7 @@
 :root {
   /* cores principais */
   --color-primary: #b8636f;       /* rosé - destaque, títulos, botões */
+  --color-primary-rgb: 184, 99, 111;
   --color-primary-light: #f7e4e6; /* rosé claro - fundos suaves, hover */
   --color-secondary: #c8a15a;     /* dourado - detalhes, valores, ícones */
 

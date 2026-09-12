@@ -1,0 +1,29 @@
+.table_item_data {
+  width: 70vw;
+  border-collapse: collapse;
+  margin-left: -6px;
+}
+
+.table_item_data th,
+.table_item_data td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  font-size: 23px;
+  text-align: center;
+}
+
+.table_item_data th {
+  background-color: #f2f2f2;
+}
+
+.table_item_data tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table_item_data tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.table_item_data tbody tr:first-child:hover {
+  background-color: transparent;
+}

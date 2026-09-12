@@ -1,63 +1,59 @@
-
-
 .navbar_planner {
   display: flex;
   padding: 1rem;
   gap: 2rem;
   font-size: 1.5rem;
-  margin: 1rem ;
+  margin: 1rem;
   justify-content: center;
   align-items: center;
 }
 
-.nav-logo{
-    font-weight: 600;
-    cursor: pointer;
+.nav-logo {
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.nav-links{
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin-left: auto;
-    
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-left: auto;
 }
-.nav-link{
-    text-decoration: none;
-    color: black;
-}
-
-.details-btn{
-    
-    padding: 12px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: var(--color-primary);
-    color: var(--color-surface);
+.nav-link {
+  text-decoration: none;
+  color: black;
 }
 
-.details-btn:hover{
-background-color: var(--color-primary-light);
-color: var(--color-text);
+.details-btn {
+  padding: 12px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
 }
 
-section{
-display: flex;
-margin: 2rem 4rem;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-
+.details-btn:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-text);
 }
 
-section h2{
-    font-size: 2rem;
+.section-card{
+  display: flex;
+  margin: 2rem 4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px rgba(var(--color-primary-rgb), 0.5);
+  border-radius: 10px;
+  padding: 1rem;
 }
 
-section p{
-    font-size: 1.5rem;
+section h2 {
+  font-size: 2rem;
 }
 
+section p {
+  font-size: 1.5rem;
+}
