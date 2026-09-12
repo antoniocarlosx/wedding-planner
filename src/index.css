@@ -1,0 +1,36 @@
+:root {
+  /* cores principais */
+  --color-primary: #b8636f;       /* rosé - destaque, títulos, botões */
+  --color-primary-light: #f7e4e6; /* rosé claro - fundos suaves, hover */
+  --color-secondary: #c8a15a;     /* dourado - detalhes, valores, ícones */
+
+  /* texto e neutros */
+  --color-text: #2b2320;          /* texto principal, quase preto */
+  --color-text-muted: #8a746c;    /* texto secundário, legendas */
+  --color-border: #ecdcd7;        /* bordas, divisórias */
+  --color-bg: #fdf8f6;            /* fundo geral da página */
+  --color-surface: #ffffff;       /* fundo de cards/blocos */
+
+  /* estados */
+  --color-success: #6b9080;       /* confirmações, disponível */
+  --color-disabled: #d8cfc9;      /* itens/local desabilitado */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+h1{
+    color: var(--color-text-muted);
+}
+
+h2{
+    color: var(--color-primary);
+}
+
+p{
+    color: var(--color-text);
+}
