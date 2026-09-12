@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar_planner {
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+  font-size: 2rem;
+  margin: 1rem ;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo{
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-links{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-left: auto;
+    
+}
+.nav-link{
+    text-decoration: none;
+    color: black;
+}
+
+.details-btn{
+    
+    padding: 12px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
