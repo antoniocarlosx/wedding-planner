@@ -4,10 +4,15 @@ import "./WeddingPlanner.css"
 
 
 const WeddingPlanner = () => {
+
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
+
+    
     <>
       <header>
-        <navbar className="navbar_planner">
+        <nav className="navbar_planner">
             <div className="nav-logo">WeddingPlanner</div>
             <div className="nav-left">
                 <div className="nav-links">
@@ -22,9 +27,9 @@ const WeddingPlanner = () => {
             </div>
 
             <div className="nav-right">
-                <button className="details-btn">Ver Detalhes</button>
+                <button className="details-btn" onClick={() => setShowDetails(!showDetails)}>Ver Detalhes</button>
             </div>
-        </navbar>
+        </nav>
       </header>
 
       <section id="numberOfGuests">
