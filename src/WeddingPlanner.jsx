@@ -32,27 +32,33 @@ const WeddingPlanner = () => {
       </section>
 
        <section id="venue">
-         <h2>Em qual local?</h2>
+        <h2>🌸 Local & Cerimônia</h2>
+         <p>Em qual local?</p>
       </section>
 
       <section id="decor">
-        <h2>Com que decoração?</h2>
+        <h2>🌿 Decoração & Ambientação	</h2>
+        <p>Com que decoração?</p>
       </section>
 
        <section id="sound">
-        <h2>Como seria a sonorização?</h2>
+        <h2>🎻 Som & Cerimônia</h2>
+        <p>Como seria a sonorização?</p>
       </section>
 
        <section id="catering">
-        <h2>O que teria para comer?</h2>
+        <h2>🥂 Gastronomia & Recepção</h2>
+        <p>O que teria para comer?</p>
       </section>
 
        <section id="coupleExperience">
-        <h2>Quais experiências você quer ter com seu noivo?</h2>
+        <h2>💐 Experiência dos Noivos</h2>
+        <p>Quais experiências você quer ter com seu noivo?</p>
       </section>
 
       <section id="memories">
-        <h2>Como quer guardar essas memórias?</h2>
+        <h2>📸 Memórias</h2>
+        <p>Como quer guardar essas memórias?</p>
 
       </section>
 

@@ -40,4 +40,21 @@
     cursor: pointer;
 }
 
+section{
+display: flex;
+margin: 2rem 4rem;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+
+section h2{
+    font-size: 2rem;
+}
+
+section p{
+    font-size: 1.5rem;
+}
 
