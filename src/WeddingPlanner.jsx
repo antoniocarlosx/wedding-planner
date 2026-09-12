@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./WeddingPlanner.css"
+import TotalCost from "./TotalCost";
 
 
 const WeddingPlanner = () => {
