@@ -17,7 +17,7 @@ const WeddingPlanner = () => {
     memories: 0,
   };
 
-  const listaDeItens = [
+  const listaDeItens = [ /*
     // venue
     { category: "venue", name: "Casarão Histórico", cost: 5500 },
 
@@ -72,7 +72,7 @@ const WeddingPlanner = () => {
       category: "memories",
       name: "Álbum Fotográfico Personalizado",
       cost: 350,
-    },
+    },*/
   ];
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
