@@ -4,10 +4,11 @@ import "./WeddingPlanner.css";
 import TotalCost from "./TotalCost";
 import NumberOfGuests from "./NumberOfGuests";
 import ItemsDisplay from "./ItemsDisplay";
-import { incrementQuantity, decrementQuantity } from "./decorSlice";
+import { incrementDecorQuantity, decrementDecorQuantity } from "./decorSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
+  const dispatch = useDispatch();
   const decorItems = useSelector((state) => state.decor);
 
   const totalCost = {
@@ -80,8 +81,12 @@ const WeddingPlanner = () => {
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
-  const handleRemoveFromCart = (index) => {
-    decrementQuantity(index);
+  const handleRemoveDecorFromCart = (index) => {
+    dispatch(decrementDecorQuantity(index));
+  };
+
+  const handleAddDecorToCart = (index) => {
+    dispatch(incrementDecorQuantity(index));
   };
 
   return (
@@ -169,10 +174,24 @@ const WeddingPlanner = () => {
                             ? "btn-warning btn-disabled"
                             : "btn-minus btn-warning"
                         }
-                        onClick={handleRemoveFromCart(index)}
+                        onClick={() => handleRemoveDecorFromCart(index)}
                       >
                         {" "}
                         &#8211;
+                      </button>
+
+                      <span className="selected-count">
+                        {decorItems[index].quantity > 0
+                          ? `${decorItems[index].quantity}`
+                          : 0}
+                      </span>
+
+                      <button
+                        className="btn-success btn-plus"
+                        onClick={() => handleAddDecorToCart(index)}
+                      >
+                        {" "}
+                        &#43;
                       </button>
                     </div>
                   </div>

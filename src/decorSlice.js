@@ -41,14 +41,14 @@ export const decorSlice = createSlice({
     },
   ],
   reducers: {
-    incrementQuantity: (state, action) => {
+    incrementDecorQuantity: (state, action) => {
       const { payload: index } = action;
       if (state[index]) {
         state[index].quantity++;
       }
     },
 
-    decrementQuantity: (state, action) => {
+    decrementDecorQuantity: (state, action) => {
       const { payload: index } = action;
       if (state[index] && state[index].quantity > 0) {
         state[index].quantity--;
@@ -58,6 +58,6 @@ export const decorSlice = createSlice({
 });
 
 
-export const { incrementQuantity, decrementQuantity } = decorSlice.actions;
+export const { incrementDecorQuantity, decrementDecorQuantity } = decorSlice.actions;
 
 export default decorSlice.reducer;
