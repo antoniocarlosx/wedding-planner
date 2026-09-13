@@ -11,6 +11,7 @@ const WeddingPlanner = () => {
   const dispatch = useDispatch();
   const decorItems = useSelector((state) => state.decor);
 
+  /*
   const totalCost = {
     venue: 0,
     decor: 0,
@@ -19,6 +20,7 @@ const WeddingPlanner = () => {
     coupleExperience: 0,
     memories: 0,
   };
+*/
 
   const listaDeItens = [
     /*
@@ -88,6 +90,20 @@ const WeddingPlanner = () => {
   const handleAddDecorToCart = (index) => {
     dispatch(incrementDecorQuantity(index));
   };
+
+  const calculateTotalCost = (section) => {
+    let totalCost = 0;
+
+    if (section === "decor") {
+      decorItems.forEach((item) => {
+        totalCost += item.cost * item.quantity;
+      });
+    }
+
+    return totalCost;
+  };
+
+  const decorTotalCost = calculateTotalCost("decor");
 
   return (
     <>
@@ -197,6 +213,11 @@ const WeddingPlanner = () => {
                   </div>
                 ))}
               </div>
+
+              <div className="total_cost">
+                  <p>Custo Parcial:</p>
+                  <span className="amount_total">R$ {decorTotalCost},00</span>
+                </div>
             </section>
 
             <section className="section-container" id="sound">
