@@ -4,6 +4,7 @@ import "./WeddingPlanner.css";
 import TotalCost from "./TotalCost";
 import NumberOfGuests from "./NumberOfGuests";
 import ItemsDisplay from "./ItemsDisplay";
+import { incrementQuantity, decrementQuantity } from "./decorSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -144,6 +145,8 @@ const WeddingPlanner = () => {
       <section className="section-card" id="decor">
         <h2>Decoração & Ambientação </h2>
         <p>Com que decoração?</p>
+
+        
       </section>
 
       <section className="section-card" id="sound">
