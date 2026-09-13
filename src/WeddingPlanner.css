@@ -39,7 +39,7 @@
   color: var(--color-text);
 }
 
-.section-card{
+.section-container {
   display: flex;
   margin: 2rem 4rem;
   flex-direction: column;
@@ -57,3 +57,80 @@ section h2 {
 section p {
   font-size: 1.5rem;
 }
+
+.decor_container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  border-radius: 10px;
+
+  font-size: 24px;
+}
+
+.decor_selection,
+.av_selection,
+.catering_selection,
+.sound_selecition,
+.memories_selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 90vw;
+  margin-left: 250px;
+}
+
+.decor-img img{
+  max-height: 200px;
+  width: 200px;
+}
+.btn-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5291D9;
+    color: black;
+    border: none;
+    width: 10px;
+    height: 30px;
+     border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn-warning {
+    background-color: var(--color-primary-light);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    color: black;
+    width: 10px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+  .btn-disabled {
+    opacity: 0.5; 
+    cursor: not-allowed;
+  }
+
+   .button_container{
+    /* background-color: red; */
+    width:200px ;
+    display: flex;
+    gap: 20px;
+  }
+
+  .btn-success, .btn-disabled{
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  font-weight: bold;
+  
+}
+  

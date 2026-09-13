@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { decorReducer } from "./decorSlice";
+import  decorReducer  from "./decorSlice";
 
 export const store = configureStore({
   reducer: {

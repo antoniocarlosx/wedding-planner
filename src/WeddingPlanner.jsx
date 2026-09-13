@@ -8,6 +8,7 @@ import { incrementQuantity, decrementQuantity } from "./decorSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
+  const decorItems = useSelector((state) => state.decor);
 
   const totalCost = {
     venue: 0,
@@ -18,7 +19,8 @@ const WeddingPlanner = () => {
     memories: 0,
   };
 
-  const listaDeItens = [ /*
+  const listaDeItens = [
+    /*
     // venue
     { category: "venue", name: "Casarão Histórico", cost: 5500 },
 
@@ -78,6 +80,10 @@ const WeddingPlanner = () => {
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
+  const handleRemoveFromCart = (index) => {
+    decrementQuantity(index);
+  };
+
   return (
     <>
       <header>
@@ -128,46 +134,76 @@ const WeddingPlanner = () => {
           )}
         />
       )}
+      <main className="main_container">
+        {!showDetails ? (
+          <div className="items-information">
+            <section className="section-container" id="numberOfGuests">
+              <h2>Para Quantos Convidados?</h2>
+              <NumberOfGuests
+                numeroDeConvidados={numeroDeConvidados}
+                aoMudar={setNumeroDeConvidados}
+              />
+            </section>
 
-      <section className="section-card" id="numberOfGuests">
-        <h2>Para Quantos Convidados?</h2>
-        <NumberOfGuests
-          numeroDeConvidados={numeroDeConvidados}
-          aoMudar={setNumeroDeConvidados}
-        />
-      </section>
+            <section className="section-container " id="venue">
+              <h2>Local & Cerimônia</h2>
+              <p>Em qual local?</p>
+            </section>
 
-      <section className="section-card" id="venue">
-        <h2>Local & Cerimônia</h2>
-        <p>Em qual local?</p>
-      </section>
+            <section className="section-container decor_container" id="decor">
+              <h2>Decoração & Ambientação </h2>
+              <p>Com que decoração?</p>
 
-      <section className="section-card" id="decor">
-        <h2>Decoração & Ambientação </h2>
-        <p>Com que decoração?</p>
+              <div className="decor_selection">
+                {decorItems.map((item, index) => (
+                  <div className="decor_main" key={index}>
+                    <div className="decor-img">
+                      <img src={item.img} alt={item.name} />
+                    </div>
+                    <div className="text">{item.name}</div>
+                    <div className="cost">R$ {item.cost},00</div>
+                    <div className="button_container">
+                      <button
+                        className={
+                          decorItems[index].quantity === 0
+                            ? "btn-warning btn-disabled"
+                            : "btn-minus btn-warning"
+                        }
+                        onClick={handleRemoveFromCart(index)}
+                      >
+                        {" "}
+                        &#8211;
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-        
-      </section>
+            <section className="section-container" id="sound">
+              <h2>Som & Cerimônia</h2>
+              <p>Como seria a sonorização?</p>
+            </section>
 
-      <section className="section-card" id="sound">
-        <h2>Som & Cerimônia</h2>
-        <p>Como seria a sonorização?</p>
-      </section>
+            <section className="section-container" id="catering">
+              <h2>Gastronomia & Recepção</h2>
+              <p>O que teria para comer?</p>
+            </section>
 
-      <section className="section-card" id="catering">
-        <h2>Gastronomia & Recepção</h2>
-        <p>O que teria para comer?</p>
-      </section>
+            <section className="section-container" id="coupleExperience">
+              <h2>Experiência dos Noivos</h2>
+              <p>Quais experiências você quer ter com seu noivo?</p>
+            </section>
 
-      <section className="section-card" id="coupleExperience">
-        <h2>Experiência dos Noivos</h2>
-        <p>Quais experiências você quer ter com seu noivo?</p>
-      </section>
-
-      <section className="section-card" id="memories">
-        <h2>Memórias</h2>
-        <p>Como quer guardar essas memórias?</p>
-      </section>
+            <section className="section-container" id="memories">
+              <h2>Memórias</h2>
+              <p>Como quer guardar essas memórias?</p>
+            </section>
+          </div>
+        ) : (
+          <div className="amount_details"></div>
+        )}
+      </main>
     </>
   );
 };
