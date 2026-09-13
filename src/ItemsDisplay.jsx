@@ -19,177 +19,150 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
     <>
       <div className="display_box1">
         <table className="table_item_data">
-          <thead>
-            <tr>
-              <td style={{ textAlign: "center" }} colSpan={4}>
-                <strong>🌸 Local &amp; Cerimônia</strong>
-              </td>
-            </tr>
-          </thead>
-
-          <tbody>
-            {itensDeVenue.length > 0 && (
-              <>
-                <tr>
-                  <th>Nome</th>
-                  <th>Custo</th>
-                  <th>Quantidade</th>
-                  <th>Subtotal</th>
+          {itensDeVenue.length > 0 && (
+            <tbody>
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  <strong>🌸 Local &amp; Cerimônia</strong>
+                </td>
+              </tr>
+              <tr>
+                <th>Nome</th>
+                <th>Custo</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+              </tr>
+              {itensDeVenue.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>R$ {item.cost},00</td>
+                  <td>1 Local</td>
+                  <td>R$ {item.cost},00</td>
                 </tr>
-                {itensDeVenue.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>R$ {item.cost},00</td>
-                    <td>1 Local</td>
-                    <td>R$ {item.cost},00</td>
-                  </tr>
-                ))}
-              </>
-            )}
-          </tbody>
-          <thead>
-            <tr>
-              <td style={{ textAlign: "center" }} colSpan={4}>
-                <strong>🌿 Decoração &amp; Ambientação</strong>
-              </td>
-            </tr>
-          </thead>
+              ))}
+            </tbody>
+          )}
 
-          <tbody>
-            {itensDeDecor.length > 0 && (
-              <>
-                <tr>
-                  <th>Nome</th>
-                  <th>Custo</th>
-                  <th>Quantidade</th>
-                  <th>Subtotal</th>
+          {itensDeDecor.length > 0 && (
+            <tbody>
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  <strong>🌿 Decoração &amp; Ambientação</strong>
+                </td>
+              </tr>
+              <tr>
+                <th>Nome</th>
+                <th>Custo</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+              </tr>
+              {itensDeDecor.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>R$ {item.cost},00</td>
+                  <td>{item.quantity}</td>
+                  <td>R$ {item.cost * item.quantity},00</td>
                 </tr>
-                {itensDeDecor.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>R$ {item.cost},00</td>
-                    <td>{item.quantity}</td>
-                    <td>R$ {item.cost * item.quantity},00</td>
-                  </tr>
-                ))}
-              </>
-            )}
-          </tbody>
+              ))}
+            </tbody>
+          )}
 
-           <thead>
-            <tr>
-              <td style={{ textAlign: "center" }} colSpan={4}>
-                <strong>🎻 Som &amp; Cerimônia</strong>
-              </td>
-            </tr>
-          </thead>
-
-          <tbody>
-            {itensDeSound.length > 0 && (
-              <>
-                <tr>
-                  <th>Nome</th>
-                  <th>Custo</th>
-                  <th>Quantidade</th>
-                  <th>Subtotal</th>
+          {itensDeSound.length > 0 && (
+            <tbody>
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  <strong>🎻 Som &amp; Cerimônia</strong>
+                </td>
+              </tr>
+              <tr>
+                <th>Nome</th>
+                <th>Custo</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+              </tr>
+              {itensDeSound.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>R$ {item.cost},00</td>
+                  <td>{item.quantity}</td>
+                  <td>R$ {item.cost * item.quantity},00</td>
                 </tr>
-                {itensDeSound.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>R$ {item.cost},00</td>
-                    <td>{item.quantity}</td>
-                    <td>R$ {item.cost * item.quantity},00</td>
-                  </tr>
-                ))}
-              </>
-            )}
-          </tbody>
+              ))}
+            </tbody>
+          )}
 
-          <thead>
-            <tr>
-              <td style={{ textAlign: "center" }} colSpan={4}>
-                <strong>🥂 Gastronomia &amp; Recepção</strong>
-              </td>
-            </tr>
-          </thead>
-
-          <tbody>
-            {itensDeCatering.length > 0 && (
-              <>
-                <tr>
-                  <th>Nome</th>
-                  <th>Custo</th>
-                  <th>Quantidade</th>
-                  <th>Subtotal</th>
+          {itensDeCatering.length > 0 && (
+            <tbody>
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  <strong>🥂 Gastronomia &amp; Recepção</strong>
+                </td>
+              </tr>
+              <tr>
+                <th>Nome</th>
+                <th>Custo</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+              </tr>
+              {itensDeCatering.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>R$ {item.cost},00</td>
+                  <td>Para {numeroDeConvidados} Convidados</td>
+                  <td>R$ {item.cost * numeroDeConvidados},00</td>
                 </tr>
-                {itensDeCatering.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>R$ {item.cost},00</td>
-                    <td>Para {numeroDeConvidados} Convidados</td>
-                    <td>R$ {item.cost * numeroDeConvidados},00</td>
-                  </tr>
-                ))}
-              </>
-            )}
-          </tbody>
+              ))}
+            </tbody>
+          )}
 
-           <thead>
-            <tr>
-              <td style={{ textAlign: "center" }} colSpan={4}>
-                <strong>💐 Experiência dos Noivos</strong>
-              </td>
-            </tr>
-          </thead>
-
-          <tbody>
-            {itensDeCoupleExperience.length > 0 && (
-              <>
-                <tr>
-                  <th>Nome</th>
-                  <th>Custo</th>
-                  <th>Quantidade</th>
-                  <th>Subtotal</th>
+          {itensDeCoupleExperience.length > 0 && (
+            <tbody>
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  <strong>💐 Experiência dos Noivos</strong>
+                </td>
+              </tr>
+              <tr>
+                <th>Nome</th>
+                <th>Custo</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+              </tr>
+              {itensDeCoupleExperience.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>R$ {item.cost},00</td>
+                  <td>1 Item</td>
+                  <td>R$ {item.cost},00</td>
                 </tr>
-                {itensDeCoupleExperience.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>R$ {item.cost},00</td>
-                    <td>1</td>
-                    <td>R$ {item.cost},00</td>
-                  </tr>
-                ))}
-              </>
-            )}
-          </tbody>
-           <thead>
-            <tr>
-              <td style={{ textAlign: "center" }} colSpan={4}>
-                <strong>📸 Memórias</strong>
-              </td>
-            </tr>
-          </thead>
+              ))}
+            </tbody>
+          )}
 
-          <tbody>
-            {itensDeMemories.length > 0 && (
-              <>
-                <tr>
-                  <th>Nome</th>
-                  <th>Custo</th>
-                  <th>Quantidade</th>
-                  <th>Subtotal</th>
+           {itensDeMemories.length > 0 && (
+            <tbody>
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  <strong>📸 Memórias</strong>
+                </td>
+              </tr>
+              <tr>
+                <th>Nome</th>
+                <th>Custo</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+              </tr>
+              {itensDeMemories.map((item) => (
+                <tr key={item.name}>
+                  <td>{item.name}</td>
+                  <td>R$ {item.cost},00</td>
+                  <td>1 Item</td>
+                  <td>R$ {item.cost},00</td>
                 </tr>
-                {itensDeMemories.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>R$ {item.cost},00</td>
-                    <td>1</td>
-                    <td>R$ {item.cost},00</td>
-                  </tr>
-                ))}
-              </>
-            )}
-          </tbody>
+              ))}
+            </tbody>
+          )}
+
         </table>
       </div>
     </>
