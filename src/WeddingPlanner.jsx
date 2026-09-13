@@ -21,65 +21,19 @@ const WeddingPlanner = () => {
     memories: 0,
   };
 */
+  const getSelectedItems = () => {
+    const items = [];
 
-  const listaDeItens = [
-    /*
-    // venue
-    { category: "venue", name: "Casarão Histórico", cost: 5500 },
+    decorItems.forEach((item) => {
+      if (item.quantity > 0) {
+        items.push({ ...item, category: "decor" });
+      }
+    });
 
-    // decor
-    {
-      category: "decor",
-      name: "Arco Floral Iluminado",
-      cost: 200,
-      quantity: 1,
-    },
-    {
-      category: "decor",
-      name: "Arranjos Florais para as Mesas",
-      cost: 150,
-      quantity: 6,
-    },
-    {
-      category: "decor",
-      name: "Luzes Decorativas de Cordão",
-      cost: 120,
-      quantity: 3,
-    },
+    return items;
+  };
 
-    // sound
-    {
-      category: "sound",
-      name: "Sistema de Som para Cerimônia",
-      cost: 150,
-      quantity: 1,
-    },
-    {
-      category: "sound",
-      name: "Microfone Sem Fio para os Votos",
-      cost: 45,
-      quantity: 2,
-    },
-
-    // catering
-    { category: "catering", name: "Almoço Festivo", cost: 65 },
-    { category: "catering", name: "Jantar de Gala", cost: 70 },
-    { category: "catering", name: "Mesa de Doces & Sobremesas", cost: 30 },
-
-    // coupleExperience
-    { category: "coupleExperience", name: "Buquê da Noiva", cost: 180 },
-    { category: "coupleExperience", name: "Lapela do Noivo", cost: 40 },
-    { category: "coupleExperience", name: "Mesa dos Noivos", cost: 150 },
-
-    // memories
-    { category: "memories", name: "Fotografia — 8 horas", cost: 1400 },
-    { category: "memories", name: "Cabine de Fotos", cost: 500 },
-    {
-      category: "memories",
-      name: "Álbum Fotográfico Personalizado",
-      cost: 350,
-    },*/
-  ];
+  const itemsList = getSelectedItems();
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
@@ -104,6 +58,15 @@ const WeddingPlanner = () => {
   };
 
   const decorTotalCost = calculateTotalCost("decor");
+
+  const totalCost = {
+    venue: 0,
+    decor: decorTotalCost,
+    sound: 0,
+    catering: 0,
+    coupleExperience: 0,
+    memories: 0,
+  };
 
   return (
     <>
@@ -149,7 +112,7 @@ const WeddingPlanner = () => {
           totalCost={totalCost}
           ItemsDisplay={() => (
             <ItemsDisplay
-              items={listaDeItens}
+              items={itemsList}
               numeroDeConvidados={numeroDeConvidados}
             />
           )}
@@ -215,9 +178,9 @@ const WeddingPlanner = () => {
               </div>
 
               <div className="total_cost">
-                  <p>Custo Parcial:</p>
-                  <span className="amount_total">R$ {decorTotalCost},00</span>
-                </div>
+                <p>Custo Parcial:</p>
+                <span className="amount_total">R$ {decorTotalCost},00</span>
+              </div>
             </section>
 
             <section className="section-container" id="sound">
