@@ -5,35 +5,13 @@ import TotalCost from "./TotalCost";
 import NumberOfGuests from "./NumberOfGuests";
 import ItemsDisplay from "./ItemsDisplay";
 import { incrementDecorQuantity, decrementDecorQuantity } from "./decorSlice";
+import { incrementSoundQuantity, decrementSoundQuantity } from "./soundSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
   const dispatch = useDispatch();
   const decorItems = useSelector((state) => state.decor);
-
-  /*
-  const totalCost = {
-    venue: 0,
-    decor: 0,
-    sound: 0,
-    catering: 0,
-    coupleExperience: 0,
-    memories: 0,
-  };
-*/
-  const getSelectedItems = () => {
-    const items = [];
-
-    decorItems.forEach((item) => {
-      if (item.quantity > 0) {
-        items.push({ ...item, category: "decor" });
-      }
-    });
-
-    return items;
-  };
-
-  const itemsList = getSelectedItems();
+  const soundItems = useSelector((state) => state.sound);
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
@@ -45,6 +23,34 @@ const WeddingPlanner = () => {
     dispatch(incrementDecorQuantity(index));
   };
 
+  const handleRemoveSoundFromCart = (index) => {
+    dispatch(decrementSoundQuantity(index));
+  };
+
+  const handleAddSoundToCart = (index) => {
+    dispatch(incrementSoundQuantity(index));
+  };
+
+  const getSelectedItems = () => {
+    const items = [];
+
+    decorItems.forEach((item) => {
+      if (item.quantity > 0) {
+        items.push({ ...item, category: "decor" });
+      }
+    });
+
+    soundItems.forEach((item) => {
+      if (item.quantity > 0) {
+        items.push({ ...item, category: "sound" });
+      }
+    });
+
+    return items;
+  };
+
+  const itemsList = getSelectedItems();
+
   const calculateTotalCost = (section) => {
     let totalCost = 0;
 
@@ -54,15 +60,23 @@ const WeddingPlanner = () => {
       });
     }
 
+    if (section === "sound") {
+      soundItems.forEach((item) => {
+        totalCost += item.cost * item.quantity;
+      });
+    }
+
     return totalCost;
   };
 
   const decorTotalCost = calculateTotalCost("decor");
 
+  const soundTotalCost = calculateTotalCost("sound");
+
   const totalCost = {
     venue: 0,
     decor: decorTotalCost,
-    sound: 0,
+    sound: soundTotalCost,
     catering: 0,
     coupleExperience: 0,
     memories: 0,
@@ -183,9 +197,53 @@ const WeddingPlanner = () => {
               </div>
             </section>
 
-            <section className="section-container" id="sound">
+            <section className="section-container sound_container" id="sound">
               <h2>Som & Cerimônia</h2>
               <p>Como seria a sonorização?</p>
+
+              <div className="sound_selection">
+                {soundItems.map((item, index) => (
+                  <div className="sound_main" key={index}>
+                    <div className="sound_img">
+                      <img src={item.img} alt={item.name} />
+                    </div>
+                    <div className="text">{item.name}</div>
+                    <div className="cost">R$ {item.cost},00</div>
+                    <div className="button_container">
+                      <button
+                        className={
+                          soundItems[index].quantity === 0
+                            ? "btn-warning btn-disabled"
+                            : "btn-minus btn-warning"
+                        }
+                        onClick={() => handleRemoveSoundFromCart(index)}
+                      >
+                        {" "}
+                        &#8211;
+                      </button>
+
+                      <span className="selected-count">
+                        {soundItems[index].quantity > 0
+                          ? `${soundItems[index].quantity}`
+                          : 0}
+                      </span>
+
+                      <button
+                        className="btn-success btn-plus"
+                        onClick={() => handleAddSoundToCart(index)}
+                      >
+                        {" "}
+                        &#43;
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="total_cost">
+                <p>Custo Parcial:</p>
+                <span className="amount_total">R$ {soundTotalCost},00</span>
+              </div>
             </section>
 
             <section className="section-container" id="catering">
