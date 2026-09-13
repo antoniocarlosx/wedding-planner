@@ -137,32 +137,32 @@ const WeddingPlanner = () => {
       </section>
 
       <section className="section-card" id="venue">
-        <h2>🌸 Local & Cerimônia</h2>
+        <h2>Local & Cerimônia</h2>
         <p>Em qual local?</p>
       </section>
 
       <section className="section-card" id="decor">
-        <h2>🌿 Decoração & Ambientação </h2>
+        <h2>Decoração & Ambientação </h2>
         <p>Com que decoração?</p>
       </section>
 
       <section className="section-card" id="sound">
-        <h2>🎻 Som & Cerimônia</h2>
+        <h2>Som & Cerimônia</h2>
         <p>Como seria a sonorização?</p>
       </section>
 
       <section className="section-card" id="catering">
-        <h2>🥂 Gastronomia & Recepção</h2>
+        <h2>Gastronomia & Recepção</h2>
         <p>O que teria para comer?</p>
       </section>
 
       <section className="section-card" id="coupleExperience">
-        <h2>💐 Experiência dos Noivos</h2>
+        <h2>Experiência dos Noivos</h2>
         <p>Quais experiências você quer ter com seu noivo?</p>
       </section>
 
       <section className="section-card" id="memories">
-        <h2>📸 Memórias</h2>
+        <h2>Memórias</h2>
         <p>Como quer guardar essas memórias?</p>
       </section>
     </>

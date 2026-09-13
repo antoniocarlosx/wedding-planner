@@ -23,7 +23,7 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
             <tbody>
               <tr>
                 <td colSpan={4} style={{ textAlign: "center" }}>
-                  <strong>🌸 Local &amp; Cerimônia</strong>
+                  <strong>Local &amp; Cerimônia</strong>
                 </td>
               </tr>
               <tr>
@@ -47,7 +47,7 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
             <tbody>
               <tr>
                 <td colSpan={4} style={{ textAlign: "center" }}>
-                  <strong>🌿 Decoração &amp; Ambientação</strong>
+                  <strong>Decoração &amp; Ambientação</strong>
                 </td>
               </tr>
               <tr>
@@ -71,7 +71,7 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
             <tbody>
               <tr>
                 <td colSpan={4} style={{ textAlign: "center" }}>
-                  <strong>🎻 Som &amp; Cerimônia</strong>
+                  <strong>Som &amp; Cerimônia</strong>
                 </td>
               </tr>
               <tr>
@@ -95,7 +95,7 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
             <tbody>
               <tr>
                 <td colSpan={4} style={{ textAlign: "center" }}>
-                  <strong>🥂 Gastronomia &amp; Recepção</strong>
+                  <strong>Gastronomia &amp; Recepção</strong>
                 </td>
               </tr>
               <tr>
@@ -119,7 +119,7 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
             <tbody>
               <tr>
                 <td colSpan={4} style={{ textAlign: "center" }}>
-                  <strong>💐 Experiência dos Noivos</strong>
+                  <strong>Experiência dos Noivos</strong>
                 </td>
               </tr>
               <tr>
@@ -139,11 +139,11 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
             </tbody>
           )}
 
-           {itensDeMemories.length > 0 && (
+          {itensDeMemories.length > 0 && (
             <tbody>
               <tr>
                 <td colSpan={4} style={{ textAlign: "center" }}>
-                  <strong>📸 Memórias</strong>
+                  <strong>Memórias</strong>
                 </td>
               </tr>
               <tr>
@@ -162,7 +162,6 @@ const ItemsDisplay = ({ items, numeroDeConvidados }) => {
               ))}
             </tbody>
           )}
-
         </table>
       </div>
     </>
