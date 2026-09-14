@@ -6,12 +6,14 @@ import NumberOfGuests from "./NumberOfGuests";
 import ItemsDisplay from "./ItemsDisplay";
 import { incrementDecorQuantity, decrementDecorQuantity } from "./decorSlice";
 import { incrementSoundQuantity, decrementSoundQuantity } from "./soundSlice";
+import { toggleCateringSelection } from "./cateringSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
   const dispatch = useDispatch();
   const decorItems = useSelector((state) => state.decor);
   const soundItems = useSelector((state) => state.sound);
+  const cateringItems = useSelector((state) => state.catering);
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
@@ -29,6 +31,15 @@ const WeddingPlanner = () => {
 
   const handleAddSoundToCart = (index) => {
     dispatch(incrementSoundQuantity(index));
+  };
+
+  const handleCateringSelection = (index) => {
+    const item = cateringItems[index];
+    const numberOfGuests = numeroDeConvidados;
+
+    if (item.selected) {
+      dispatch(toggleCateringSelection(index, numberOfGuests));
+    }
   };
 
   const getSelectedItems = () => {
@@ -143,6 +154,35 @@ const WeddingPlanner = () => {
               />
             </section>
 
+            <section
+              className="section-container  catering_container"
+              id="catering"
+            >
+              <h2>Gastronomia & Recepção</h2>
+              <p>O que teria para comer?</p>
+
+              <div className="catering_selection">
+                {cateringItems.map((item, index) => (
+                  <div className="catering_main" key={index}>
+                    <div className="catering-img">
+                      <img src={item.img} alt={item.name} />
+                    </div>
+                    <div className="items-description">
+                      <div className="title">{item.name}</div>
+                      <div className="description">{item.description}</div>
+                      
+                      <div className="pricing">
+                        <div className="cost">R${item.cost},00</div>
+                        <span>
+                          <em>Por pessoa</em>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
             <section className="section-container " id="venue">
               <h2>Local & Cerimônia</h2>
               <p>Em qual local?</p>
@@ -244,11 +284,6 @@ const WeddingPlanner = () => {
                 <p>Custo Parcial:</p>
                 <span className="amount_total">R$ {soundTotalCost},00</span>
               </div>
-            </section>
-
-            <section className="section-container" id="catering">
-              <h2>Gastronomia & Recepção</h2>
-              <p>O que teria para comer?</p>
             </section>
 
             <section className="section-container" id="coupleExperience">

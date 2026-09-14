@@ -59,7 +59,8 @@ section p {
 }
 
 .decor_container,
-.sound_container {
+.sound_container,
+.catering_container {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -69,13 +70,12 @@ section p {
 
   padding: 20px;
   border-radius: 10px;
-
+  max-width: 100%;
   font-size: 24px;
 }
 
 .decor_selection,
 .av_selection,
-.catering_selection,
 .sound_selection,
 .memories_selection {
   display: flex;
@@ -87,6 +87,35 @@ section p {
   margin: 1rem;
 }
 
+.catering_selection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.catering_main {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #fff;
+  box-sizing: border-box;
+  height: 150px;
+}
+
+.items-description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
+}
 .sound_selection {
   max-width: 100%;
   margin: 0 auto;
@@ -96,6 +125,48 @@ section p {
   height: 200px;
   width: 200px;
   margin-bottom: 1rem;
+}
+.pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  width: 100%;
+}
+
+/* Alvo específico para o preço do catering não ser afetado pelo .cost global */
+.catering_main .pricing .cost {
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.3rem; /* Tamanho proporcional para o card */
+  line-height: 1;
+  margin: 0;
+}
+
+.pricing span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.catering-img img {
+  height: 100px;
+  width: 100px;
+  border-radius: 12px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text, #1a1a1a);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: var(--color-text-muted, #666);
+  margin: 0.25rem 0 0.5rem 0;
+  line-height: 1.4;
 }
 
 .button_container {
@@ -160,20 +231,16 @@ section p {
   flex-direction: column;
 }
 
-.total_cost p{
+.total_cost p {
   font-size: 1.5rem;
   color: var(--color-text);
 }
 
-
-.total_cost span{
+.total_cost span {
   font-size: 1.5rem;
   color: var(--color-primary-light);
   font-weight: bold;
 }
-
-
-
 
 .text {
   font-size: 30px;
@@ -186,6 +253,3 @@ section p {
   font-weight: 700;
   font-size: 1.8rem;
 }
-
-
-
