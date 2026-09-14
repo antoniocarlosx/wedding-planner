@@ -174,7 +174,7 @@ const WeddingPlanner = () => {
                       <div className="pricing">
                         <div className="cost">R${item.cost},00</div>
                         <span>
-                          <em>Por pessoa</em>
+                          <em>por pessoa</em>
                         </span>
                       </div>
                     </div>

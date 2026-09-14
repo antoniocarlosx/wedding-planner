@@ -127,18 +127,19 @@ section p {
   margin-bottom: 1rem;
 }
 .pricing {
-  display: flex;
-  align-items: baseline;
+  display: flex !important;
+  justify-content: flex-start !important; 
+  align-items: baseline !important;
   gap: 0.6rem;
   margin-top: 0.4rem;
   width: 100%;
 }
 
-/* Alvo específico para o preço do catering não ser afetado pelo .cost global */
+
 .catering_main .pricing .cost {
   color: var(--color-secondary);
   font-weight: 700;
-  font-size: 1.3rem; /* Tamanho proporcional para o card */
+  font-size: 1.3rem; 
   line-height: 1;
   margin: 0;
 }
