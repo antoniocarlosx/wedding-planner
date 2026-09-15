@@ -160,7 +160,10 @@ const WeddingPlanner = () => {
             >
               <h2>Gastronomia & Recepção</h2>
               <p>O que teria para comer?</p>
-              <span className="catering-explain">O valor total irá variar de acordo com o número de convidados escolhido acima!</span>
+              <span className="catering-explain">
+                O valor total irá variar de acordo com o número de convidados
+                escolhido acima!
+              </span>
 
               <div className="catering_selection">
                 {cateringItems.map((item, index) => (
@@ -170,19 +173,26 @@ const WeddingPlanner = () => {
                     </div>
                     <div className="catering-items-description">
                       <div className="catering-title">{item.name}</div>
-                      <div className="catering-description">{item.description}</div>
-                      
+                      <div className="catering-description">
+                        {item.description}
+                      </div>
+
                       <div className="catering-pricing">
                         <div className="catering-cost">R${item.cost},00</div>
                         <span className="catering-span">
                           <em>por pessoa</em>
                         </span>
                       </div>
-
-                      
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="total_cost">
+                <p>Custo Parcial:</p>
+                <div className="catering-partial-cost">
+                  <span className="amount_total">R$ {decorTotalCost},00</span>
+                <span className="number-of-guests"><em>para <strong>{numeroDeConvidados}</strong> convidados</em></span>
+                </div>
               </div>
             </section>
 
