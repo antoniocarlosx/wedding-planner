@@ -183,6 +183,14 @@ const WeddingPlanner = () => {
                           <em>por pessoa</em>
                         </span>
                       </div>
+                      <div className="inner-catering">
+                        <input
+                          type="checkbox"
+                          id={`catering_${index}`}
+                          checked={item.selected}
+                          onChange={() => handleCateringSelection(index)}
+                        />
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -191,7 +199,11 @@ const WeddingPlanner = () => {
                 <p>Custo Parcial:</p>
                 <div className="catering-partial-cost">
                   <span className="amount_total">R$ {decorTotalCost},00</span>
-                <span className="number-of-guests"><em>para <strong>{numeroDeConvidados}</strong> convidados</em></span>
+                  <span className="number-of-guests">
+                    <em>
+                      para <strong>{numeroDeConvidados}</strong> convidados
+                    </em>
+                  </span>
                 </div>
               </div>
             </section>
