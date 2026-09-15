@@ -59,8 +59,7 @@ section p {
 }
 
 .decor_container,
-.sound_container,
-.catering_container {
+.sound_container {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -87,35 +86,6 @@ section p {
   margin: 1rem;
 }
 
-.catering_selection {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-.catering_main {
-  display: flex;
-  align-items: center;
-
-  gap: 1rem;
-  border: 1px solid #dcdcdc;
-  border-radius: 12px;
-  padding: 1rem;
-  background-color: #fff;
-  box-sizing: border-box;
-  height: 150px;
-}
-
-.items-description {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  align-items: flex-start;
-}
 .sound_selection {
   max-width: 100%;
   margin: 0 auto;
@@ -125,49 +95,6 @@ section p {
   height: 200px;
   width: 200px;
   margin-bottom: 1rem;
-}
-.pricing {
-  display: flex !important;
-  justify-content: flex-start !important; 
-  align-items: baseline !important;
-  gap: 0.6rem;
-  margin-top: 0.4rem;
-  width: 100%;
-}
-
-
-.catering_main .pricing .cost {
-  color: var(--color-secondary);
-  font-weight: 700;
-  font-size: 1.3rem; 
-  line-height: 1;
-  margin: 0;
-}
-
-.pricing span {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.catering-img img {
-  height: 100px;
-  width: 100px;
-  border-radius: 12px;
-}
-
-.title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-text, #1a1a1a);
-  margin: 0;
-  line-height: 1.3;
-}
-
-.description {
-  font-size: 0.85rem;
-  color: var(--color-text-muted, #666);
-  margin: 0.25rem 0 0.5rem 0;
-  line-height: 1.4;
 }
 
 .button_container {
@@ -253,4 +180,70 @@ section p {
   color: var(--color-secondary);
   font-weight: 700;
   font-size: 1.8rem;
+}
+
+.catering-explain{
+  color: var(--color-text-muted)
+}
+
+.catering-img img {
+  height: 100px;
+  width: 100px;
+  border-radius: 12px;
+}
+
+.catering_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  max-width: 100%;
+}
+
+.catering_main {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  border: solid 1px #dcdcdc;
+  border-radius: 12px;
+  height: 150px;
+}
+
+.catering_selection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.catering-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.catering-description {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0.25rem 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.catering-pricing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.catering-cost {
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.catering-span {
+  font-size: 12px;
+  color: var(--color-text-muted);
 }
