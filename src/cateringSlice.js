@@ -50,13 +50,6 @@ export const cateringSlice = createSlice({
     },
   ],
   reducers: {
-    incrementCateringQuantity: (state, action) => {
-      const { payload: index } = action;
-      if (state[index]) {
-        state[index].quantity++;
-      }
-    },
-
     toggleCateringSelection: (state, action) => {
       const { payload: index } = action;
       state[index].selected = !state[index].selected;

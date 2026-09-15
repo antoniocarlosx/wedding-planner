@@ -34,12 +34,7 @@ const WeddingPlanner = () => {
   };
 
   const handleCateringSelection = (index) => {
-    const item = cateringItems[index];
-    const numberOfGuests = numeroDeConvidados;
-
-    if (item.selected) {
-      dispatch(toggleCateringSelection(index, numberOfGuests));
-    }
+    dispatch(toggleCateringSelection(index));
   };
 
   const getSelectedItems = () => {
@@ -54,6 +49,12 @@ const WeddingPlanner = () => {
     soundItems.forEach((item) => {
       if (item.quantity > 0) {
         items.push({ ...item, category: "sound" });
+      }
+    });
+
+    cateringItems.forEach((item) => {
+      if (item.selected) {
+        items.push({ ...item, category: "catering" });
       }
     });
 
@@ -77,6 +78,14 @@ const WeddingPlanner = () => {
       });
     }
 
+    if (section === "catering") {
+      cateringItems.forEach((item) => {
+        if (item.selected) {
+          totalCost += item.cost * numeroDeConvidados;
+        }
+      });
+    }
+
     return totalCost;
   };
 
@@ -84,11 +93,13 @@ const WeddingPlanner = () => {
 
   const soundTotalCost = calculateTotalCost("sound");
 
+  const cateringTotalCost = calculateTotalCost("catering");
+
   const totalCost = {
     venue: 0,
     decor: decorTotalCost,
     sound: soundTotalCost,
-    catering: 0,
+    catering: cateringTotalCost,
     coupleExperience: 0,
     memories: 0,
   };
@@ -176,15 +187,15 @@ const WeddingPlanner = () => {
                       <div className="catering-description">
                         {item.description}
                       </div>
-
-                      <div className="catering-pricing">
-                        <div className="catering-cost">R${item.cost},00</div>
-                        <span className="catering-span">
-                          <em>por pessoa</em>
-                        </span>
-                      </div>
-                      <div className="inner-catering">
+                      <div className="bottom-line">
+                        <div className="catering-pricing">
+                          <div className="catering-cost">R${item.cost},00</div>
+                          <span className="catering-span">
+                            <em>por pessoa</em>
+                          </span>
+                        </div>
                         <input
+                          className="catering-checkbox"
                           type="checkbox"
                           id={`catering_${index}`}
                           checked={item.selected}
@@ -198,7 +209,9 @@ const WeddingPlanner = () => {
               <div className="total_cost">
                 <p>Custo Parcial:</p>
                 <div className="catering-partial-cost">
-                  <span className="amount_total">R$ {decorTotalCost},00</span>
+                  <span className="amount_total">
+                    R$ {cateringTotalCost},00
+                  </span>
                   <span className="number-of-guests">
                     <em>
                       para <strong>{numeroDeConvidados}</strong> convidados

@@ -183,8 +183,8 @@ section p {
   font-size: 1.8rem;
 }
 
-.catering-explain{
-  color: var(--color-text-muted)
+.catering-explain {
+  color: var(--color-text-muted);
 }
 
 .catering-img img {
@@ -199,6 +199,7 @@ section p {
   gap: 2rem;
   padding: 1.5rem;
   max-width: 100%;
+  justify-content: center;
 }
 
 .catering_main {
@@ -209,15 +210,23 @@ section p {
   border: solid 1px #dcdcdc;
   border-radius: 12px;
   height: 150px;
-  
+  width: 500px;
+  box-sizing: border-box;
 }
 
 .catering_selection {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, auto);
   gap: 1.5rem;
   width: 100%;
   padding: 0 1rem;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.catering-items-description {
+  display: flex;
+  flex-direction: column;
 }
 
 .catering-title {
@@ -227,11 +236,32 @@ section p {
 }
 
 .catering-description {
+  flex: 1;
   font-size: 0.85rem;
   color: var(--color-text-muted);
   margin: 0.25rem 0 0.5rem 0;
-  line-height: 1.4;
+  line-height: 1.5em;
+  height: 3em;
+  min-width: 0;
+  max-width: 300px;
 }
+
+.bottom-line {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.catering-checkbox {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
 
 .catering-pricing {
   display: flex;
@@ -250,17 +280,12 @@ section p {
   color: var(--color-text-muted);
 }
 
-.number-of-guests{
+.number-of-guests {
   color: var(--color-text-muted);
 }
 
-.catering-partial-cost{
+.catering-partial-cost {
   display: flex;
   gap: 5px;
   align-items: baseline;
-}
-
-.inner-catering input{
-  height: 5px;
-  display: none;
 }
