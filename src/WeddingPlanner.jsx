@@ -17,7 +17,7 @@ const WeddingPlanner = () => {
   const soundItems = useSelector((state) => state.sound);
   const cateringItems = useSelector((state) => state.catering);
   const coupleExperienceItems = useSelector((state) => state.coupleExperience);
-  const memoriesItems = useSelector((state) => state);
+  const memoriesItems = useSelector((state) => state.memories);
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
@@ -78,7 +78,7 @@ const WeddingPlanner = () => {
 
     memoriesItems.forEach((item) => {
       if (item.selected) {
-        items.push({ ...items, category: "memories" });
+        items.push({ ...item, category: "memories" });
       }
     });
 
@@ -118,12 +118,12 @@ const WeddingPlanner = () => {
       });
     }
 
-    if (section === "memories"){
-      memoriesItems.forEach((item)=> {
-        if(item.selected){
+    if (section === "memories") {
+      memoriesItems.forEach((item) => {
+        if (item.selected) {
           totalCost += item.cost;
         }
-      })
+      });
     }
 
     return totalCost;
@@ -137,7 +137,7 @@ const WeddingPlanner = () => {
 
   const coupleExperienceTotalCost = calculateTotalCost("coupleExperience");
 
-  const memoriesTotalCost = calculateTotalCost("memories")
+  const memoriesTotalCost = calculateTotalCost("memories");
 
   const totalCost = {
     venue: 0,
@@ -419,6 +419,42 @@ const WeddingPlanner = () => {
             <section className="section-container" id="memories">
               <h2>Memórias</h2>
               <p>Como quer guardar essas memórias?</p>
+
+              <div className="memories_selection">
+                {memoriesItems.map((item, index) => (
+                  <div className="memories_main" key={index}>
+                    <div className="memories-img">
+                      <img src={item.img} alt={item.name} loading="lazy" />
+                    </div>
+                    <div className="memories-items-description">
+                      <div className="memories-title">{item.name}</div>
+                      <div className="memories-description">
+                        {item.description}
+                      </div>
+                      <div className="bottom-line">
+                        <div className="memories-pricing">
+                          <div className="memories-cost">R${item.cost},00</div>
+                        </div>
+                        <input
+                          className="memories-checkbox"
+                          type="checkbox"
+                          id={`memories_${index}`}
+                          checked={item.selected}
+                          onChange={() => handleMemoriesSelection(index)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="total_cost">
+                <p>Custo Parcial:</p>
+                <div className="memories-partial-cost">
+                  <span className="amount_total">
+                    R$ {memoriesTotalCost},00
+                  </span>
+                </div>
+              </div>
             </section>
           </div>
         ) : (

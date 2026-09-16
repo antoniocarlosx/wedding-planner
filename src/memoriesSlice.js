@@ -33,6 +33,12 @@ export const memoriesSlice = createSlice({
       cost: 350,
       selected: false,
     },
+    {
+      img: "/wedding-planner/melhores-momentos.jpg",
+      name: "Vídeo Highlights (Melhores Momentos)",
+      cost: 450,
+      selected: false,
+    },
   ],
   reducers: {
     toggleMemoriesSelection: (state, action) => {

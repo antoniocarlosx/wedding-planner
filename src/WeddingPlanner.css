@@ -89,7 +89,8 @@ section p {
 .decor_container,
 .sound_container,
 .catering_container,
-.coupleExperience_container {
+.coupleExperience_container,
+.memories_container {
   width: 100%;
   padding: 0;
 }
@@ -111,7 +112,8 @@ section p {
 
 /* Seções tipo "seleção" (cards maiores, em grid de 2 colunas) */
 .catering_selection,
-.coupleExperience_selection {
+.coupleExperience_selection,
+.memories_selection {
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-content: center;
@@ -224,7 +226,8 @@ section p {
    Escala equivalente aos cards de quantidade (título/preço no mesmo tamanho)
    ========================================================================== */
 .catering_main,
-.coupleExperience_main {
+.coupleExperience_main,
+.memories_main {
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -238,13 +241,15 @@ section p {
 }
 
 .catering_main:hover,
-.coupleExperience_main:hover {
+.coupleExperience_main:hover,
+.memories_main:hover {
   border-color: var(--color-primary);
   box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.15);
 }
 
 .catering-img img,
-.coupleExperience-img img {
+.coupleExperience-img img, 
+.memories-img img{
   height: 140px;
   width: 140px;
   object-fit: cover;
@@ -253,7 +258,8 @@ section p {
 }
 
 .catering-items-description,
-.coupleExperience-items-description {
+.coupleExperience-items-description,
+.memories-items-description {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -262,14 +268,16 @@ section p {
 }
 
 .catering-title,
-.coupleExperience-title {
+.coupleExperience-title,
+.memories-title{
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-text);
 }
 
 .catering-description,
-.coupleExperience-description {
+.coupleExperience-description,
+.memories-description{
   flex: 1;
   font-size: 0.95rem;
   line-height: 1.5em;
@@ -287,14 +295,16 @@ section p {
 }
 
 .catering-pricing,
-.coupleExperience-pricing {
+.coupleExperience-pricing,
+.memories-pricing {
   display: flex;
   align-items: baseline;
   gap: 5px;
 }
 
 .catering-cost,
-.coupleExperience-cost {
+.coupleExperience-cost,
+.memories-cost {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-secondary);
@@ -306,7 +316,8 @@ section p {
 }
 
 .catering-checkbox,
-.coupleExperience-checkbox {
+.coupleExperience-checkbox,
+.memories-checkbox {
   height: 1.3rem;
   width: 1.3rem;
   border-radius: 50%;
@@ -344,7 +355,8 @@ section p {
 }
 
 .catering-partial-cost,
-.coupleExperience-partial-cost {
+.coupleExperience-partial-cost,
+.memories-partial-cost {
   display: flex;
   align-items: baseline;
   gap: 5px;
