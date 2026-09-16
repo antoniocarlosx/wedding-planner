@@ -59,7 +59,8 @@ section p {
 }
 
 .decor_container,
-.sound_container {
+.sound_container,
+.coupleExperience_container {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -73,8 +74,19 @@ section p {
   font-size: 24px;
 }
 
+.coupleExperience_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 1rem;
+  border: solid 1px #dcdcdc;
+  border-radius: 12px;
+  width: 280px;
+  box-sizing: border-box;
+}
 .decor_selection,
-.av_selection,
 .sound_selection,
 .memories_selection {
   display: flex;
@@ -183,6 +195,12 @@ section p {
   font-size: 1.8rem;
 }
 
+.coupleExperience-cost {
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
 .catering-explain {
   color: var(--color-text-muted);
 }
@@ -193,7 +211,22 @@ section p {
   border-radius: 12px;
 }
 
+.coupleExperience-img img {
+  height: 200px;
+  width: 200px;
+  border-radius: 12px;
+}
+
 .catering_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.coupleExperience_container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -214,6 +247,19 @@ section p {
   box-sizing: border-box;
 }
 
+/*
+.coupleExperience_main {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  border: solid 1px #dcdcdc;
+  border-radius: 12px;
+  height: 232px;
+  width: 500px;
+  box-sizing: border-box;
+}*/
+
 .catering_selection {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -224,18 +270,39 @@ section p {
   justify-content: center;
 }
 
+.coupleExperience_selection {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.coupleExperience-items-description {
+  display: flex;
+  flex-direction: column;
+}
+
 .catering-items-description {
   display: flex;
   flex-direction: column;
 }
 
+.coupleExperience-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
 .catering-title {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-text);
 }
 
-.catering-description {
+.catering-description,
+.coupleExperience-description {
   flex: 1;
   font-size: 0.85rem;
   color: var(--color-text-muted);
@@ -254,6 +321,14 @@ section p {
   width: 100%;
 }
 
+.coupleExperience-checkbox {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
 .catering-checkbox {
   height: 1rem;
   width: 1rem;
@@ -262,8 +337,8 @@ section p {
   accent-color: var(--color-primary);
 }
 
-
-.catering-pricing {
+.catering-pricing,
+.coupleExperience-pricing {
   display: flex;
   gap: 5px;
   align-items: baseline;
@@ -284,7 +359,8 @@ section p {
   color: var(--color-text-muted);
 }
 
-.catering-partial-cost {
+.catering-partial-cost,
+.coupleExperience-partial-cost {
   display: flex;
   gap: 5px;
   align-items: baseline;

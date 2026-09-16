@@ -7,6 +7,7 @@ import ItemsDisplay from "./ItemsDisplay";
 import { incrementDecorQuantity, decrementDecorQuantity } from "./decorSlice";
 import { incrementSoundQuantity, decrementSoundQuantity } from "./soundSlice";
 import { toggleCateringSelection } from "./cateringSlice";
+import { toggleCoupleExperienceSelection } from "./coupleExperienceSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -14,6 +15,7 @@ const WeddingPlanner = () => {
   const decorItems = useSelector((state) => state.decor);
   const soundItems = useSelector((state) => state.sound);
   const cateringItems = useSelector((state) => state.catering);
+  const coupleExperienceItems = useSelector((state) => state.coupleExperience);
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
@@ -37,6 +39,10 @@ const WeddingPlanner = () => {
     dispatch(toggleCateringSelection(index));
   };
 
+  const handleCoupleExperienceSelection = (index) => {
+    dispatch(toggleCoupleExperienceSelection(index));
+  };
+
   const getSelectedItems = () => {
     const items = [];
 
@@ -55,6 +61,12 @@ const WeddingPlanner = () => {
     cateringItems.forEach((item) => {
       if (item.selected) {
         items.push({ ...item, category: "catering" });
+      }
+    });
+
+    coupleExperienceItems.forEach((item) => {
+      if (item.selected) {
+        items.push({ ...item, category: "coupleExperience" });
       }
     });
 
@@ -86,6 +98,14 @@ const WeddingPlanner = () => {
       });
     }
 
+    if (section === "coupleExperience") {
+      coupleExperienceItems.forEach((item) => {
+        if (item.selected) {
+          totalCost += item.cost;
+        }
+      });
+    }
+
     return totalCost;
   };
 
@@ -95,12 +115,14 @@ const WeddingPlanner = () => {
 
   const cateringTotalCost = calculateTotalCost("catering");
 
+  const coupleExperienceTotalCost = calculateTotalCost("coupleExperience");
+
   const totalCost = {
     venue: 0,
     decor: decorTotalCost,
     sound: soundTotalCost,
     catering: cateringTotalCost,
-    coupleExperience: 0,
+    coupleExperience: coupleExperienceTotalCost,
     memories: 0,
   };
 
@@ -324,9 +346,52 @@ const WeddingPlanner = () => {
               </div>
             </section>
 
-            <section className="section-container" id="coupleExperience">
+            <section
+              className="section-container coupleExperience_container"
+              id="coupleExperience"
+            >
               <h2>Experiência dos Noivos</h2>
               <p>Quais experiências você quer ter com seu noivo?</p>
+
+              <div className="coupleExperience_selection">
+                {coupleExperienceItems.map((item, index) => (
+                  <div className="coupleExperience_main" key={index}>
+                    <div className="coupleExperience-img">
+                      <img src={item.img} alt={item.name} />
+                    </div>
+                    <div className="coupleExperience-items-description">
+                      <div className="coupleExperience-title">{item.name}</div>
+                      <div className="coupleExperience-description">
+                        {item.description}
+                      </div>
+                      <div className="bottom-line">
+                        <div className="coupleExperience-pricing">
+                          <div className="coupleExperience-cost">
+                            R${item.cost},00
+                          </div>
+                        </div>
+                        <input
+                          className="coupleExperience-checkbox"
+                          type="checkbox"
+                          id={`coupleExperience_${index}`}
+                          checked={item.selected}
+                          onChange={() =>
+                            handleCoupleExperienceSelection(index)
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="total_cost">
+                <p>Custo Parcial:</p>
+                <div className="coupleExperience-partial-cost">
+                  <span className="amount_total">
+                    R$ {coupleExperienceTotalCost},00
+                  </span>
+                </div>
+              </div>
             </section>
 
             <section className="section-container" id="memories">
