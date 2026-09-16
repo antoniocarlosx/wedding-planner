@@ -202,7 +202,7 @@ const WeddingPlanner = () => {
                 {cateringItems.map((item, index) => (
                   <div className="catering_main" key={index}>
                     <div className="catering-img">
-                      <img src={item.img} alt={item.name} />
+                      <img src={item.img} alt={item.name} loading="lazy"/>
                     </div>
                     <div className="catering-items-description">
                       <div className="catering-title">{item.name}</div>
@@ -256,7 +256,7 @@ const WeddingPlanner = () => {
                 {decorItems.map((item, index) => (
                   <div className="decor_main" key={index}>
                     <div className="decor-img">
-                      <img src={item.img} alt={item.name} />
+                      <img src={item.img} alt={item.name} loading="lazy"/>
                     </div>
                     <div className="text">{item.name}</div>
                     <div className="cost">R$ {item.cost},00</div>
@@ -305,7 +305,7 @@ const WeddingPlanner = () => {
                 {soundItems.map((item, index) => (
                   <div className="sound_main" key={index}>
                     <div className="sound_img">
-                      <img src={item.img} alt={item.name} />
+                      <img src={item.img} alt={item.name} loading="lazy"/>
                     </div>
                     <div className="text">{item.name}</div>
                     <div className="cost">R$ {item.cost},00</div>
@@ -357,7 +357,7 @@ const WeddingPlanner = () => {
                 {coupleExperienceItems.map((item, index) => (
                   <div className="coupleExperience_main" key={index}>
                     <div className="coupleExperience-img">
-                      <img src={item.img} alt={item.name} />
+                      <img src={item.img} alt={item.name} loading="lazy" />
                     </div>
                     <div className="coupleExperience-items-description">
                       <div className="coupleExperience-title">{item.name}</div>
