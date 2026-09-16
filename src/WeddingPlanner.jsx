@@ -8,6 +8,7 @@ import { incrementDecorQuantity, decrementDecorQuantity } from "./decorSlice";
 import { incrementSoundQuantity, decrementSoundQuantity } from "./soundSlice";
 import { toggleCateringSelection } from "./cateringSlice";
 import { toggleCoupleExperienceSelection } from "./coupleExperienceSlice";
+import { toggleMemoriesSelection } from "./memoriesSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -16,6 +17,7 @@ const WeddingPlanner = () => {
   const soundItems = useSelector((state) => state.sound);
   const cateringItems = useSelector((state) => state.catering);
   const coupleExperienceItems = useSelector((state) => state.coupleExperience);
+  const memoriesItems = useSelector((state) => state);
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
 
@@ -43,6 +45,10 @@ const WeddingPlanner = () => {
     dispatch(toggleCoupleExperienceSelection(index));
   };
 
+  const handleMemoriesSelection = (index) => {
+    dispatch(toggleMemoriesSelection(index));
+  };
+
   const getSelectedItems = () => {
     const items = [];
 
@@ -67,6 +73,12 @@ const WeddingPlanner = () => {
     coupleExperienceItems.forEach((item) => {
       if (item.selected) {
         items.push({ ...item, category: "coupleExperience" });
+      }
+    });
+
+    memoriesItems.forEach((item) => {
+      if (item.selected) {
+        items.push({ ...items, category: "memories" });
       }
     });
 
@@ -106,6 +118,14 @@ const WeddingPlanner = () => {
       });
     }
 
+    if (section === "memories"){
+      memoriesItems.forEach((item)=> {
+        if(item.selected){
+          totalCost += item.cost;
+        }
+      })
+    }
+
     return totalCost;
   };
 
@@ -117,13 +137,15 @@ const WeddingPlanner = () => {
 
   const coupleExperienceTotalCost = calculateTotalCost("coupleExperience");
 
+  const memoriesTotalCost = calculateTotalCost("memories")
+
   const totalCost = {
     venue: 0,
     decor: decorTotalCost,
     sound: soundTotalCost,
     catering: cateringTotalCost,
     coupleExperience: coupleExperienceTotalCost,
-    memories: 0,
+    memories: memoriesTotalCost,
   };
 
   return (
@@ -202,7 +224,7 @@ const WeddingPlanner = () => {
                 {cateringItems.map((item, index) => (
                   <div className="catering_main" key={index}>
                     <div className="catering-img">
-                      <img src={item.img} alt={item.name} loading="lazy"/>
+                      <img src={item.img} alt={item.name} loading="lazy" />
                     </div>
                     <div className="catering-items-description">
                       <div className="catering-title">{item.name}</div>
@@ -256,7 +278,7 @@ const WeddingPlanner = () => {
                 {decorItems.map((item, index) => (
                   <div className="decor_main" key={index}>
                     <div className="decor-img">
-                      <img src={item.img} alt={item.name} loading="lazy"/>
+                      <img src={item.img} alt={item.name} loading="lazy" />
                     </div>
                     <div className="text">{item.name}</div>
                     <div className="cost">R$ {item.cost},00</div>
@@ -305,7 +327,7 @@ const WeddingPlanner = () => {
                 {soundItems.map((item, index) => (
                   <div className="sound_main" key={index}>
                     <div className="sound_img">
-                      <img src={item.img} alt={item.name} loading="lazy"/>
+                      <img src={item.img} alt={item.name} loading="lazy" />
                     </div>
                     <div className="text">{item.name}</div>
                     <div className="cost">R$ {item.cost},00</div>

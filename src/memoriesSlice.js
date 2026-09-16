@@ -35,7 +35,7 @@ export const memoriesSlice = createSlice({
     },
   ],
   reducers: {
-    togglememoriesSelection: (state, action) => {
+    toggleMemoriesSelection: (state, action) => {
       const { payload: index } = action;
       const item = state[index];
       const session4hours = "Fotografia — 4 horas";
@@ -57,7 +57,7 @@ export const memoriesSlice = createSlice({
   },
 });
 
-export const { togglememoriesSelection } = memoriesSlice.actions;
+export const { toggleMemoriesSelection } = memoriesSlice.actions;
 
 export default memoriesSlice.reducer;
 
