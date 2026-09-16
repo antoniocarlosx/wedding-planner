@@ -1,11 +1,14 @@
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
 .navbar_planner {
   display: flex;
-  padding: 1rem;
-  gap: 2rem;
-  font-size: 1.5rem;
-  margin: 1rem;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1.5rem;
 }
 
 .nav-logo {
@@ -15,23 +18,27 @@
 
 .nav-links {
   display: flex;
-  gap: 2rem;
   justify-content: center;
+  gap: 2rem;
   margin-left: auto;
 }
+
 .nav-link {
+  color: var(--color-text);
   text-decoration: none;
-  color: black;
+  font-size: 1rem;
 }
 
 .details-btn {
-  padding: 12px;
-  font-size: 1.2rem;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   background-color: var(--color-primary);
   color: var(--color-surface);
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .details-btn:hover {
@@ -39,74 +46,123 @@
   color: var(--color-text);
 }
 
+/* ==========================================================================
+   ESTRUTURA DAS SEÇÕES (comum a todas: Local, Decoração, Som, Gastronomia,
+   Experiência dos Noivos, Memórias)
+   ========================================================================== */
 .section-container {
   display: flex;
-  margin: 2rem 4rem;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1.5rem;
   border: solid 1px rgba(var(--color-primary-rgb), 0.5);
   border-radius: 10px;
-  padding: 1rem;
+  box-sizing: border-box;
 }
 
 section h2 {
-  font-size: 2rem;
+  font-size: 1.9rem;
+  color: var(--color-primary);
+  text-align: center;
 }
 
 section p {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0;
 }
 
+.catering-explain {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* Wrappers específicos de cada seção: hoje só herdam do section-container,
+   mantidos aqui só para permitir ajuste futuro isolado se necessário */
 .decor_container,
 .sound_container,
+.catering_container,
 .coupleExperience_container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-  justify-content: center;
-
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 100%;
-  font-size: 24px;
+  width: 100%;
+  padding: 0;
 }
 
-.coupleExperience_main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
-  padding: 1rem;
-  border: solid 1px #dcdcdc;
-  border-radius: 12px;
-  width: 280px;
-  box-sizing: border-box;
-}
+/* ==========================================================================
+   GRID / WRAP DE ITENS DENTRO DE CADA SEÇÃO
+   ========================================================================== */
+
+/* Seções tipo "quantidade" (cards menores, em wrap livre) */
 .decor_selection,
 .sound_selection,
 .memories_selection {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
-  width: 100%;
   justify-content: center;
-
-  margin: 1rem;
+  gap: 1.75rem;
+  width: 100%;
 }
 
-.sound_selection {
-  max-width: 100%;
-  margin: 0 auto;
+/* Seções tipo "seleção" (cards maiores, em grid de 2 colunas) */
+.catering_selection,
+.coupleExperience_selection {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+/* ==========================================================================
+   CARDS TIPO "QUANTIDADE" — Decoração & Som
+   Layout: imagem em cima, título, preço, botões +/- embaixo
+   ========================================================================== */
+.decor_main,
+.sound_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  width: 200px;
+  padding: 1rem;
+  border: solid 1px var(--color-border);
+  border-radius: 12px;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.decor_main:hover,
+.sound_main:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.15);
+}
+
 .decor-img img,
 .sound_img img {
-  height: 200px;
-  width: 200px;
-  margin-bottom: 1rem;
+  height: 180px;
+  width: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.cost {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-secondary);
 }
 
 .button_container {
@@ -114,7 +170,7 @@ section p {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .btn-warning,
@@ -130,9 +186,7 @@ section p {
   line-height: 1;
   border: none;
   cursor: pointer;
-  transition:
-    transform 0.15s ease,
-    opacity 0.15s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
 .btn-warning {
@@ -159,144 +213,57 @@ section p {
 .selected-count {
   min-width: 20px;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--color-text);
 }
 
-.total_cost {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.total_cost p {
-  font-size: 1.5rem;
-  color: var(--color-text);
-}
-
-.amount_total {
-  font-size: 1.5rem;
-  color: var(--color-primary-light);
-  font-weight: bold;
-}
-
-.text {
-  font-size: 30px;
-  color: var(--color-text);
-  font-weight: bold;
-}
-
-.cost {
-  color: var(--color-secondary);
-  font-weight: 700;
-  font-size: 1.8rem;
-}
-
-.coupleExperience-cost {
-  color: var(--color-secondary);
-  font-weight: 700;
-  font-size: 1.8rem;
-}
-
-.catering-explain {
-  color: var(--color-text-muted);
-}
-
-.catering-img img {
-  height: 100px;
-  width: 100px;
-  border-radius: 12px;
-}
-
-.coupleExperience-img img {
-  height: 200px;
-  width: 200px;
-  border-radius: 12px;
-}
-
-.catering_container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 1.5rem;
-  max-width: 100%;
-  justify-content: center;
-}
-
-.coupleExperience_container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 1.5rem;
-  max-width: 100%;
-  justify-content: center;
-}
-
-.catering_main {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  gap: 1rem;
-  border: solid 1px #dcdcdc;
-  border-radius: 12px;
-  height: 150px;
-  width: 500px;
-  box-sizing: border-box;
-}
-
-/*
+/* ==========================================================================
+   CARDS TIPO "SELEÇÃO" — Gastronomia & Experiência dos Noivos
+   Layout: imagem à esquerda, texto + preço + checkbox à direita
+   Escala equivalente aos cards de quantidade (título/preço no mesmo tamanho)
+   ========================================================================== */
+.catering_main,
 .coupleExperience_main {
   display: flex;
   align-items: center;
-  padding: 1rem;
-  gap: 1rem;
-  border: solid 1px #dcdcdc;
+  gap: 1.25rem;
+  width: 480px;
+  min-height: 180px;
+  padding: 1.25rem;
+  border: solid 1px var(--color-border);
   border-radius: 12px;
-  height: 232px;
-  width: 500px;
   box-sizing: border-box;
-}*/
-
-.catering_selection {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 1.5rem;
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  justify-content: center;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.coupleExperience_selection {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 1.5rem;
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  justify-content: center;
+.catering_main:hover,
+.coupleExperience_main:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.15);
 }
 
+.catering-img img,
+.coupleExperience-img img {
+  height: 140px;
+  width: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.catering-items-description,
 .coupleExperience-items-description {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  flex: 1;
 }
 
-.catering-items-description {
-  display: flex;
-  flex-direction: column;
-}
-
+.catering-title,
 .coupleExperience-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-.catering-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-text);
 }
@@ -304,13 +271,11 @@ section p {
 .catering-description,
 .coupleExperience-description {
   flex: 1;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin: 0.25rem 0 0.5rem 0;
+  font-size: 0.95rem;
   line-height: 1.5em;
-  height: 3em;
+  color: var(--color-text-muted);
+  margin: 0.4rem 0 0.6rem 0;
   min-width: 0;
-  max-width: 300px;
 }
 
 .bottom-line {
@@ -321,47 +286,66 @@ section p {
   width: 100%;
 }
 
-.coupleExperience-checkbox {
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  cursor: pointer;
-  accent-color: var(--color-primary);
-}
-
-.catering-checkbox {
-  height: 1rem;
-  width: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  accent-color: var(--color-primary);
-}
-
 .catering-pricing,
 .coupleExperience-pricing {
   display: flex;
-  gap: 5px;
   align-items: baseline;
+  gap: 5px;
 }
 
-.catering-cost {
-  color: var(--color-secondary);
+.catering-cost,
+.coupleExperience-cost {
+  font-size: 1.3rem;
   font-weight: 700;
-  font-size: 1.1rem;
+  color: var(--color-secondary);
 }
 
 .catering-span {
-  font-size: 12px;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
+.catering-checkbox,
+.coupleExperience-checkbox {
+  height: 1.3rem;
+  width: 1.3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CUSTO PARCIAL (rodapé de cada seção — comum a todas)
+   ========================================================================== */
+.total_cost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  
+}
+
+.total_cost p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.amount_total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
 .number-of-guests {
+  font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
 .catering-partial-cost,
 .coupleExperience-partial-cost {
   display: flex;
-  gap: 5px;
   align-items: baseline;
+  gap: 5px;
 }
