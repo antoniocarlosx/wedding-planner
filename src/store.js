@@ -4,6 +4,7 @@ import soundReducer from "./soundSlice";
 import cateringReducer from "./cateringSlice";
 import coupleExperienceReducer from "./coupleExperienceSlice";
 import memoriesReducer from "./memoriesSlice";
+import venueReducer from "./venueSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     catering: cateringReducer,
     coupleExperience: coupleExperienceReducer,
     memories: memoriesReducer,
+    venue: venueReducer,
   },
 });

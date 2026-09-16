@@ -224,8 +224,10 @@ export const venueSlice = createSlice({
   initialState: venuesByCapacity,
   reducers: {
     toggleVenueSelection: (state, action) => {
-      const { payload: index } = action;
-      
+      const { capacity, index } = action.payload;
+      const item = state[capacity][index];
+
+      item.selected = !item.selected;
     },
   },
 });
