@@ -37,7 +37,22 @@ export const memoriesSlice = createSlice({
   reducers: {
     togglememoriesSelection: (state, action) => {
       const { payload: index } = action;
-      state[index].selected = !state[index].selected;
+      const item = state[index];
+      const session4hours = "Fotografia — 4 horas";
+      const session8hours = "Fotografia — 8 horas";
+
+      if (item.name === session4hours || item.name === session8hours) {
+        const otherSession =
+          item.name === session4hours ? session8hours : session4hours;
+
+        const otherItem = state.find((i) => i.name === otherSession);
+
+        if (otherItem && otherItem.selected) {
+          otherItem.selected = false;
+        }
+      }
+
+      item.selected = !item.selected;
     },
   },
 });
@@ -45,3 +60,5 @@ export const memoriesSlice = createSlice({
 export const { togglememoriesSelection } = memoriesSlice.actions;
 
 export default memoriesSlice.reducer;
+
+

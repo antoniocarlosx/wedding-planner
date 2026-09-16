@@ -3,6 +3,7 @@ import decorReducer from "./decorSlice";
 import soundReducer from "./soundSlice";
 import cateringReducer from "./cateringSlice";
 import coupleExperienceReducer from "./coupleExperienceSlice";
+import memoriesReducer from "./memoriesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     sound: soundReducer,
     catering: cateringReducer,
     coupleExperience: coupleExperienceReducer,
+    memories: memoriesReducer,
   },
 });
