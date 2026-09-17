@@ -73,6 +73,7 @@
   font-size: 1.05rem; 
   font-weight: 500;
   line-height: 1.5;
+  text-align: left;
 }
 .first_page_name_btn {
   display: flex;
@@ -118,6 +119,7 @@
 
 .planner_sentence {
   font-size: 29px;
+  text-align: center;
 }
 
 /* Correção base fluida */

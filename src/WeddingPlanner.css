@@ -1,6 +1,8 @@
+/* ========================= MENU MOBILE ========================= */
+
 /* ==========================================================================
    NAVBAR
-   ========================================================================== */
+   ========================================================================== 
 .navbar_planner {
   display: flex;
   align-items: center;
@@ -30,15 +32,21 @@
   font-size: 1rem;
 }
 
+*/
+
+/* ================= BOTÃO MOBILE (PADRÃO) ================= */
 .details-btn {
-  padding: 12px 20px;
-  font-size: 1.1rem;
+  display: flex;
+  justify-content: end;
+  padding: 8px 14px;
+  font-size: 0.9rem;
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   background-color: var(--color-primary);
-  color: var(--color-surface);
+  color: white;
+  white-space: nowrap;
   transition:
     background-color 0.15s ease,
     color 0.15s ease;
@@ -47,6 +55,15 @@
 .details-btn:hover {
   background-color: var(--color-primary-light);
   color: var(--color-text);
+}
+
+/* ================= AJUSTE PARA DESKTOP (860px+) ================= */
+@media (min-width: 860px) {
+  .details-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
 }
 
 /* ==========================================================================
@@ -380,7 +397,6 @@ section p {
   gap: 5px;
 }
 
-
 /* ==========================================================================
    COMPORTAMENTO EXCLUSIVO PARA TELAS PEQUENAS (MOBILE)
    ========================================================================== */
@@ -408,7 +424,6 @@ section p {
     margin: 1rem auto;
   }
 
- 
   .catering_main,
   .coupleExperience_main,
   .memories_main,
@@ -419,7 +434,7 @@ section p {
   }
 
   .catering-img img,
-  .coupleExperience-img img, 
+  .coupleExperience-img img,
   .memories-img img,
   .venue-img img {
     width: 100%;

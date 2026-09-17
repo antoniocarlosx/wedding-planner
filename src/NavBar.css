@@ -1,0 +1,175 @@
+:root {
+  --main-text: #2c3e50;
+  --nav-bg: #ffffff;
+}
+
+/* ================= HEADER CONTAINER ================= */
+.navbar-header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  gap: 10px;
+}
+
+.nav-title{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-left: 3rem;
+  align-items: center;
+}
+/* Linha 1 no Mobile: Título ocupando a linha toda */
+.app-name {
+  display: flex;
+  justify-content: center;
+  
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--main-text);
+  text-align: center;
+  align-items: baseline;
+ 
+}
+
+/* Linha 2 no Mobile: Controles/Botões alinhados embaixo */
+.nav-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ================= BOTÃO HAMBÚRGUER ================= */
+.menu-toggler {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--main-text);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toggler.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggler.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggler.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ================= MENU GAVETA (MOBILE) ================= */
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 220px;
+  padding: 1.2rem;
+  background-color: var(--nav-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-bottom-left-radius: 8px;
+  z-index: 1000;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list-item {
+  width: 100%;
+  margin: 0;
+}
+
+.nav-link {
+  color: var(--main-text);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+/* ================= DESKTOP (860px+) ================= */
+@media (min-width: 860px) {
+  .navbar-header {
+    flex-wrap: nowrap;
+    padding: 0.8rem 2rem;
+  }
+
+  .app-name {
+    width: auto;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+  }
+
+  .nav-actions {
+    width: auto;
+  }
+
+  .menu-toggler {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav-list-item {
+    width: auto;
+  }
+
+  .nav-link{
+    font-size: 1.2rem;
+  }
+}
+

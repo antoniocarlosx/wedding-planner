@@ -4,6 +4,7 @@ import "./WeddingPlanner.css";
 import TotalCost from "./TotalCost";
 import NumberOfGuests from "./NumberOfGuests";
 import ItemsDisplay from "./ItemsDisplay";
+import { NavBar } from "./NavBar";
 import { incrementDecorQuantity, decrementDecorQuantity } from "./decorSlice";
 import { incrementSoundQuantity, decrementSoundQuantity } from "./soundSlice";
 import { toggleCateringSelection } from "./cateringSlice";
@@ -15,6 +16,16 @@ const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
 
   const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
+
+  const navLinks = [
+    { label: "Local", href: "#venue" },
+    { label: "Decoração", href: "#decor" },
+    { label: "Som & Cerimônia", href: "#sound" },
+    { label: "Gastronomia & Recepção", href: "#catering" },
+    { label: "Experiência dos Noivos", href: "#coupleExperience" },
+    { label: "Memórias", href: "#memories" },
+  ];
+
   const dispatch = useDispatch();
   const decorItems = useSelector((state) => state.decor);
   const soundItems = useSelector((state) => state.sound);
@@ -178,43 +189,16 @@ const WeddingPlanner = () => {
 
   return (
     <>
-      <header>
-        <nav className="navbar_planner">
-          <div className="nav-logo">WeddingPlanner</div>
-          <div className="nav-left">
-            <div className="nav-links">
-              <a href="#venue" className="nav-link">
-                Local
-              </a>
-              <a href="#decor" className="nav-link">
-                Decoração
-              </a>
-              <a href="#sound" className="nav-link">
-                Som & Cerimônia
-              </a>
-              <a href="#catering" className="nav-link">
-                Gastronomia & Recepção
-              </a>
-              <a href="#coupleExperience" className="nav-link">
-                Experiência dos Noivos
-              </a>
-              <a href="#memories" className="nav-link">
-                Memórias
-              </a>
-            </div>
-          </div>
-
-          <div className="nav-right">
-            <button
-              className="details-btn"
-              onClick={() => setShowDetails(!showDetails)}
-            >
-              Ver Detalhes
-            </button>
-          </div>
-        </nav>
-      </header>
-
+      <NavBar links={navLinks} appName={'Wedding Planner'}>
+        <div className="nav-right">
+          <button
+            className="details-btn"
+            onClick={() => setShowDetails(!showDetails)}
+          >
+            Ver Detalhes
+          </button>
+        </div>
+      </NavBar>
       {showDetails && (
         <TotalCost
           totalCost={totalCost}
@@ -241,7 +225,10 @@ const WeddingPlanner = () => {
               <h2>Local & Cerimônia</h2>
               <p>Em qual local?</p>
 
-              <span>Locais indicados para <strong>{numeroDeConvidados} convidados</strong></span>
+              <span>
+                Locais indicados para{" "}
+                <strong>{numeroDeConvidados} convidados</strong>
+              </span>
 
               <div className="venue_selection">
                 {venueItems.map((item, index) => (
