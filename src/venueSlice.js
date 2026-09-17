@@ -225,13 +225,37 @@ export const venueSlice = createSlice({
   reducers: {
     toggleVenueSelection: (state, action) => {
       const { capacity, index } = action.payload;
-      const item = state[capacity][index];
 
-      item.selected = !item.selected;
+      // Guarda a capacidade atual que foi selecionada no slider de convidados
+      const currentCapacity = state[capacity];
+      // Guarda o Indice da capacidade atual
+      const currentCapacityIndex = state[capacity][index];
+
+      if (currentCapacity && currentCapacityIndex) {
+        // 1. Guarda o estado atual do indice
+        const isCurrentlySelected = currentCapacityIndex.selected;
+
+        // 2. Desmarca todos os itens da capacidade atual
+        currentCapacity.forEach((venue) => {
+          venue.selected = false;
+        });
+
+        //3. Inverte o item do indice atual, se selecionado desmarca, e se não selecionado o marca
+        currentCapacityIndex.selected = !isCurrentlySelected;
+
+        // Todos os outros itens já estavam desmarcados na etapa 2, a etapa 3 apenas marca um deles.
+      }
+    },
+    clearAllSelections: (state) => {
+      Object.values(state).forEach((venues) => {
+        venues.forEach((venue) => {
+          venue.selected = false;
+        });
+      });
     },
   },
 });
 
-export const { toggleVenueSelection } = venueSlice.actions;
+export const { toggleVenueSelection, clearAllSelections } = venueSlice.actions;
 
 export default venueSlice.reducer;

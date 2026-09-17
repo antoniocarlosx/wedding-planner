@@ -113,7 +113,8 @@ section p {
 /* Seções tipo "seleção" (cards maiores, em grid de 2 colunas) */
 .catering_selection,
 .coupleExperience_selection,
-.memories_selection {
+.memories_selection,
+.venue_selection {
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-content: center;
@@ -227,7 +228,8 @@ section p {
    ========================================================================== */
 .catering_main,
 .coupleExperience_main,
-.memories_main {
+.memories_main,
+.venue_main {
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -242,7 +244,8 @@ section p {
 
 .catering_main:hover,
 .coupleExperience_main:hover,
-.memories_main:hover {
+.memories_main:hover,
+.venue_main:hover {
   border-color: var(--color-primary);
   box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.15);
 }
@@ -259,7 +262,8 @@ section p {
 
 .catering-items-description,
 .coupleExperience-items-description,
-.memories-items-description {
+.memories-items-description,
+.venue-items-description {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -269,7 +273,8 @@ section p {
 
 .catering-title,
 .coupleExperience-title,
-.memories-title{
+.memories-title,
+.venue-title{
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-text);
@@ -277,7 +282,8 @@ section p {
 
 .catering-description,
 .coupleExperience-description,
-.memories-description{
+.memories-description,
+.venue-description{
   flex: 1;
   font-size: 0.95rem;
   line-height: 1.5em;
@@ -296,7 +302,8 @@ section p {
 
 .catering-pricing,
 .coupleExperience-pricing,
-.memories-pricing {
+.memories-pricing,
+.venue-pricing {
   display: flex;
   align-items: baseline;
   gap: 5px;
@@ -304,7 +311,8 @@ section p {
 
 .catering-cost,
 .coupleExperience-cost,
-.memories-cost {
+.memories-cost,
+.venue-cost {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-secondary);
@@ -317,7 +325,8 @@ section p {
 
 .catering-checkbox,
 .coupleExperience-checkbox,
-.memories-checkbox {
+.memories-checkbox,
+.venue-checkbox {
   height: 1.3rem;
   width: 1.3rem;
   border-radius: 50%;
@@ -356,7 +365,8 @@ section p {
 
 .catering-partial-cost,
 .coupleExperience-partial-cost,
-.memories-partial-cost {
+.memories-partial-cost,
+.venue-partial-cost {
   display: flex;
   align-items: baseline;
   gap: 5px;

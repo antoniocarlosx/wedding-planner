@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./WeddingPlanner.css";
 import TotalCost from "./TotalCost";
@@ -9,17 +9,25 @@ import { incrementSoundQuantity, decrementSoundQuantity } from "./soundSlice";
 import { toggleCateringSelection } from "./cateringSlice";
 import { toggleCoupleExperienceSelection } from "./coupleExperienceSlice";
 import { toggleMemoriesSelection } from "./memoriesSlice";
+import { toggleVenueSelection, clearAllSelections } from "./venueSlice";
 
 const WeddingPlanner = () => {
   const [showDetails, setShowDetails] = useState(false);
+
+  const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
   const dispatch = useDispatch();
   const decorItems = useSelector((state) => state.decor);
   const soundItems = useSelector((state) => state.sound);
   const cateringItems = useSelector((state) => state.catering);
   const coupleExperienceItems = useSelector((state) => state.coupleExperience);
   const memoriesItems = useSelector((state) => state.memories);
+  const venueByCapacity = useSelector((state) => state.venue);
 
-  const [numeroDeConvidados, setNumeroDeConvidados] = useState(5);
+  useEffect(() => {
+    dispatch(clearAllSelections());
+  }, [numeroDeConvidados, dispatch]);
+
+  const venueItems = venueByCapacity[numeroDeConvidados] || [];
 
   const handleRemoveDecorFromCart = (index) => {
     dispatch(decrementDecorQuantity(index));
@@ -47,6 +55,10 @@ const WeddingPlanner = () => {
 
   const handleMemoriesSelection = (index) => {
     dispatch(toggleMemoriesSelection(index));
+  };
+
+  const handleVenueSelection = (index) => {
+    dispatch(toggleVenueSelection({ capacity: numeroDeConvidados, index }));
   };
 
   const getSelectedItems = () => {
@@ -79,6 +91,12 @@ const WeddingPlanner = () => {
     memoriesItems.forEach((item) => {
       if (item.selected) {
         items.push({ ...item, category: "memories" });
+      }
+    });
+
+    venueItems.forEach((item) => {
+      if (item.selected) {
+        items.push({ ...item, category: "venue" });
       }
     });
 
@@ -126,6 +144,14 @@ const WeddingPlanner = () => {
       });
     }
 
+    if (section === "venue") {
+      venueItems.forEach((item) => {
+        if (item.selected) {
+          totalCost = item.cost;
+        }
+      });
+    }
+
     return totalCost;
   };
 
@@ -139,8 +165,10 @@ const WeddingPlanner = () => {
 
   const memoriesTotalCost = calculateTotalCost("memories");
 
+  const venueTotalCost = calculateTotalCost("venue");
+
   const totalCost = {
-    venue: 0,
+    venue: venueTotalCost,
     decor: decorTotalCost,
     sound: soundTotalCost,
     catering: cateringTotalCost,
@@ -209,6 +237,41 @@ const WeddingPlanner = () => {
               />
             </section>
 
+            <section className="section-container " id="venue">
+              <h2>Local & Cerimônia</h2>
+              <p>Em qual local?</p>
+
+              <span>Locais indicados para <strong>{numeroDeConvidados} convidados</strong></span>
+
+              <div className="venue_selection">
+                {venueItems.map((item, index) => (
+                  <div className="venue_main" key={index}>
+                    <div className="venue-items-description">
+                      <div className="venue-title">{item.name}</div>
+                      <div className="venue-description">
+                        {item.description}
+                      </div>
+                      <div className="bottom-line">
+                        <div className="venue-pricing">
+                          <div className="venue-cost">R${item.cost},00</div>
+                        </div>
+                        <input
+                          className="venue-checkbox"
+                          type="checkbox"
+                          id={`venue_${index}`}
+                          checked={item.selected}
+                          onChange={() => handleVenueSelection(index)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="total_cost">
+                <p>Custo Parcial:</p>
+                <span className="amount_total">R$ {venueTotalCost},00</span>
+              </div>
+            </section>
             <section
               className="section-container  catering_container"
               id="catering"
@@ -263,11 +326,6 @@ const WeddingPlanner = () => {
                   </span>
                 </div>
               </div>
-            </section>
-
-            <section className="section-container " id="venue">
-              <h2>Local & Cerimônia</h2>
-              <p>Em qual local?</p>
             </section>
 
             <section className="section-container decor_container" id="decor">
