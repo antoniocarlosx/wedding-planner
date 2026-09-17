@@ -17,6 +17,8 @@ const TotalCost = ({ totalCost, ItemsDisplay }) => {
           <header>
             <h1>Custo Total do Evento</h1>
           </header>
+
+          <button onClick={ () => window.print()} className="print-btn">Baixar Orçamento (PDF)</button>
           <div className="total_amount">
             <h2>R$ {amount_total},00</h2>
           </div>

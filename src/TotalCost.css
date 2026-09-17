@@ -22,7 +22,59 @@
   font-size: 1.25rem;
 }
 
-h1{
+h1 {
   text-align: center;
   font-size: 1.5rem;
+}
+
+.print-btn {
+  display: flex;
+  justify-content: end;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: white;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.print-btn:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-text);
+}
+
+@media (min-width: 860px) {
+  .print-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .display-box,
+  .display-box * {
+    visibility: visible;
+  }
+
+  .display-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .print-btn {
+    display: none;
+  }
 }
