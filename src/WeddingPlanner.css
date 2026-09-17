@@ -19,7 +19,8 @@
 .nav-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-left: auto;
 }
 
@@ -38,7 +39,9 @@
   cursor: pointer;
   background-color: var(--color-primary);
   color: var(--color-surface);
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .details-btn:hover {
@@ -101,8 +104,7 @@ section p {
 
 /* Seções tipo "quantidade" (cards menores, em wrap livre) */
 .decor_selection,
-.sound_selection,
-.memories_selection {
+.sound_selection {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -116,7 +118,7 @@ section p {
 .memories_selection,
 .venue_selection {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
   justify-content: center;
   gap: 1.5rem;
   width: 100%;
@@ -139,7 +141,9 @@ section p {
   border: solid 1px var(--color-border);
   border-radius: 12px;
   box-sizing: border-box;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .decor_main:hover,
@@ -189,7 +193,9 @@ section p {
   line-height: 1;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
 }
 
 .btn-warning {
@@ -233,13 +239,16 @@ section p {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  width: 480px;
+  width: 100%;
+  max-width: 500px;
   min-height: 180px;
   padding: 1.25rem;
   border: solid 1px var(--color-border);
   border-radius: 12px;
   box-sizing: border-box;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .catering_main:hover,
@@ -251,8 +260,8 @@ section p {
 }
 
 .catering-img img,
-.coupleExperience-img img, 
-.memories-img img{
+.coupleExperience-img img,
+.memories-img img {
   height: 140px;
   width: 140px;
   object-fit: cover;
@@ -274,7 +283,7 @@ section p {
 .catering-title,
 .coupleExperience-title,
 .memories-title,
-.venue-title{
+.venue-title {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-text);
@@ -283,7 +292,7 @@ section p {
 .catering-description,
 .coupleExperience-description,
 .memories-description,
-.venue-description{
+.venue-description {
   flex: 1;
   font-size: 0.95rem;
   line-height: 1.5em;
@@ -344,7 +353,6 @@ section p {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  
 }
 
 .total_cost p {
@@ -370,4 +378,56 @@ section p {
   display: flex;
   align-items: baseline;
   gap: 5px;
+}
+
+
+/* ==========================================================================
+   COMPORTAMENTO EXCLUSIVO PARA TELAS PEQUENAS (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Empilha a navbar no topo */
+  .navbar_planner {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .nav-links {
+    margin-left: 0;
+    gap: 0.8rem;
+  }
+
+  .details-btn {
+    width: 100%;
+  }
+
+  /* Reduz margens externas */
+  .section-container {
+    padding: 1rem 0.5rem;
+    margin: 1rem auto;
+  }
+
+ 
+  .catering_main,
+  .coupleExperience_main,
+  .memories_main,
+  .venue_main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .catering-img img,
+  .coupleExperience-img img, 
+  .memories-img img,
+  .venue-img img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .bottom-line {
+    margin-top: 1rem;
+    width: 100%;
+  }
 }
