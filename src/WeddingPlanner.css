@@ -361,6 +361,19 @@ section p {
   flex-shrink: 0;
 }
 
+.show-details-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-span{
+font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+}
+
 /* ==========================================================================
    CUSTO PARCIAL (rodapé de cada seção — comum a todas)
    ========================================================================== */

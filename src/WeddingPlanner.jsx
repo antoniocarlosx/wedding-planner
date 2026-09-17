@@ -192,7 +192,7 @@ const WeddingPlanner = () => {
   return (
     <>
       <NavBar links={navLinks} appName={"Wedding Planner"}>
-        <div className="nav-right">
+        <div className="show-details-container">
           <button
             className="details-btn"
             onClick={() => setShowDetails(!showDetails)}
@@ -260,6 +260,17 @@ const WeddingPlanner = () => {
                 <p>Custo Parcial:</p>
                 <span className="amount_total">R$ {venueTotalCost},00</span>
               </div>
+              <div className="show-details-container">
+                <button
+                  className="details-btn"
+                  onClick={() => setShowDetails(!showDetails)}
+                >
+                  Ver Total Selecionado
+                </button>
+                <span className="details-span">
+                  Clique para ver os itens que você já selecionou
+                </span>
+              </div>
             </section>
             <section
               className="section-container  catering_container"
@@ -315,6 +326,17 @@ const WeddingPlanner = () => {
                   </span>
                 </div>
               </div>
+              <div className="show-details-container">
+                <button
+                  className="details-btn"
+                  onClick={() => setShowDetails(!showDetails)}
+                >
+                  Ver Total Selecionado
+                </button>
+                <span className="details-span">
+                  Clique para ver os itens que você já selecionou
+                </span>
+              </div>
             </section>
 
             <section className="section-container decor_container" id="decor">
@@ -363,6 +385,17 @@ const WeddingPlanner = () => {
               <div className="total_cost">
                 <p>Custo Parcial:</p>
                 <span className="amount_total">R$ {decorTotalCost},00</span>
+              </div>
+              <div className="show-details-container">
+                <button
+                  className="details-btn"
+                  onClick={() => setShowDetails(!showDetails)}
+                >
+                  Ver Total Selecionado
+                </button>
+                <span className="details-span">
+                  Clique para ver os itens que você já selecionou
+                </span>
               </div>
             </section>
 
@@ -413,6 +446,17 @@ const WeddingPlanner = () => {
                 <p>Custo Parcial:</p>
                 <span className="amount_total">R$ {soundTotalCost},00</span>
               </div>
+              <div className="show-details-container">
+                <button
+                  className="details-btn"
+                  onClick={() => setShowDetails(!showDetails)}
+                >
+                  Ver Total Selecionado
+                </button>
+                <span className="details-span">
+                  Clique para ver os itens que você já selecionou
+                </span>
+              </div>
             </section>
 
             <section
@@ -461,6 +505,17 @@ const WeddingPlanner = () => {
                   </span>
                 </div>
               </div>
+              <div className="show-details-container">
+                <button
+                  className="details-btn"
+                  onClick={() => setShowDetails(!showDetails)}
+                >
+                  Ver Total Selecionado
+                </button>
+                <span className="details-span">
+                  Clique para ver os itens que você já selecionou
+                </span>
+              </div>
             </section>
 
             <section className="section-container" id="memories">
@@ -502,13 +557,24 @@ const WeddingPlanner = () => {
                   </span>
                 </div>
               </div>
+              <div className="show-details-container">
+                <button
+                  className="details-btn"
+                  onClick={() => setShowDetails(!showDetails)}
+                >
+                  Ver Total Selecionado
+                </button>
+                <span className="details-span">
+                  Clique para ver os itens que você já selecionou
+                </span>
+              </div>
             </section>
           </div>
         ) : (
           <div className="amount_details"></div>
         )}
 
-       <GoHomeBtn href="#home"/>
+        <GoHomeBtn href="#home" />
       </main>
     </>
   );
