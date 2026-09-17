@@ -37,7 +37,7 @@
 /* ================= BOTÃO MOBILE (PADRÃO) ================= */
 .details-btn {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   padding: 8px 14px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -366,6 +366,7 @@ section p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .details-span{
