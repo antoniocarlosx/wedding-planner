@@ -8,7 +8,7 @@ export const NavBar = ({ links, appName, children }) => {
     <>
       <header className="navbar-header">
         <div className="nav-title">
-          <span className="app-name">{appName}</span>
+          <span id="home" className="app-name">{appName}</span>
           <button
             type="button"
             className={`menu-toggler ${isOpen ? "active" : ""}`}

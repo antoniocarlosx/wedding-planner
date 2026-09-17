@@ -5,6 +5,8 @@ import TotalCost from "./TotalCost";
 import NumberOfGuests from "./NumberOfGuests";
 import ItemsDisplay from "./ItemsDisplay";
 import { NavBar } from "./NavBar";
+import GoHomeBtn from "./GoHomeBtn";
+
 import { incrementDecorQuantity, decrementDecorQuantity } from "./decorSlice";
 import { incrementSoundQuantity, decrementSoundQuantity } from "./soundSlice";
 import { toggleCateringSelection } from "./cateringSlice";
@@ -189,7 +191,7 @@ const WeddingPlanner = () => {
 
   return (
     <>
-      <NavBar links={navLinks} appName={'Wedding Planner'}>
+      <NavBar links={navLinks} appName={"Wedding Planner"}>
         <div className="nav-right">
           <button
             className="details-btn"
@@ -505,6 +507,8 @@ const WeddingPlanner = () => {
         ) : (
           <div className="amount_details"></div>
         )}
+
+       <GoHomeBtn href="#home"/>
       </main>
     </>
   );
